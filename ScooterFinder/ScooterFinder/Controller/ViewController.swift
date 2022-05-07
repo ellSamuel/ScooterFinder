@@ -11,9 +11,11 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        Rest.vehiclesData {
+            switch $0 {
+            case .success(_): print("Vehicle data loaded.")
+            case .error: print("Error loading vehicle data.")
+            }
+        }
     }
-
-
 }
-
