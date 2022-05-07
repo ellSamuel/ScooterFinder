@@ -6,8 +6,9 @@
 //
 
 import Foundation
+import MapKit
 
-struct Vehicle {
+class Vehicle: NSObject, MKAnnotation {
     let id: String
     let type: TierVehicleType
     let lat, lng: Double
@@ -25,5 +26,9 @@ struct Vehicle {
         self.batteryLevel = element.attributes.batteryLevel
         self.maxSpeed = element.attributes.maxSpeed
         self.hasHelmetBox = element.attributes.hasHelmetBox
+    }
+    
+    var coordinate: CLLocationCoordinate2D {
+        CLLocationCoordinate2D(latitude: lat, longitude: lng)
     }
 }

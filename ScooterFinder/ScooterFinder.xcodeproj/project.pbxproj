@@ -10,9 +10,9 @@
 		942F74A9282673D0007522EE /* Rest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942F74A8282673D0007522EE /* Rest.swift */; };
 		942F74AB28268B96007522EE /* TierData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942F74AA28268B96007522EE /* TierData.swift */; };
 		942F74AD2826B931007522EE /* Vehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942F74AC2826B931007522EE /* Vehicle.swift */; };
+		942F74AF2826C632007522EE /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942F74AE2826C632007522EE /* MapViewController.swift */; };
 		94C635B32824240400F6B50A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C635B22824240400F6B50A /* AppDelegate.swift */; };
 		94C635B52824240400F6B50A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C635B42824240400F6B50A /* SceneDelegate.swift */; };
-		94C635B72824240400F6B50A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C635B62824240400F6B50A /* ViewController.swift */; };
 		94C635BA2824240400F6B50A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94C635B82824240400F6B50A /* Main.storyboard */; };
 		94C635BC2824240500F6B50A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94C635BB2824240500F6B50A /* Assets.xcassets */; };
 		94C635BF2824240500F6B50A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94C635BD2824240500F6B50A /* LaunchScreen.storyboard */; };
@@ -33,10 +33,10 @@
 		942F74A8282673D0007522EE /* Rest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rest.swift; sourceTree = "<group>"; };
 		942F74AA28268B96007522EE /* TierData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TierData.swift; sourceTree = "<group>"; };
 		942F74AC2826B931007522EE /* Vehicle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vehicle.swift; sourceTree = "<group>"; };
+		942F74AE2826C632007522EE /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		94C635AF2824240400F6B50A /* ScooterFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScooterFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94C635B22824240400F6B50A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		94C635B42824240400F6B50A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		94C635B62824240400F6B50A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		94C635B92824240400F6B50A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		94C635BB2824240500F6B50A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		94C635BE2824240500F6B50A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -66,7 +66,7 @@
 		942F74A42826721C007522EE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				94C635B62824240400F6B50A /* ViewController.swift */,
+				942F74AE2826C632007522EE /* MapViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -261,11 +261,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				942F74AD2826B931007522EE /* Vehicle.swift in Sources */,
-				94C635B72824240400F6B50A /* ViewController.swift in Sources */,
 				94C635B32824240400F6B50A /* AppDelegate.swift in Sources */,
 				94C635B52824240400F6B50A /* SceneDelegate.swift in Sources */,
 				942F74AB28268B96007522EE /* TierData.swift in Sources */,
 				942F74A9282673D0007522EE /* Rest.swift in Sources */,
+				942F74AF2826C632007522EE /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
