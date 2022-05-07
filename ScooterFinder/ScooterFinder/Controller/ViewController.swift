@@ -13,7 +13,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         Rest.vehiclesData {
             switch $0 {
-            case .success(_): print("Vehicle data loaded.")
+            case .success(let vehicles): print("Vehicle data loaded. \(vehicles.count) vehicles initialised.")
             case .error: print("Error loading vehicle data.")
             }
         }

@@ -9,8 +9,15 @@ import Foundation
 
 class Rest {
     
-    static func vehiclesData(completion: @escaping (ResultEnum<TierData>) -> Void) {
-        makeRequest(.vehiclesData, completion: completion)
+    static func vehiclesData(completion: @escaping (ResultEnum<[Vehicle]>) -> Void) {
+        makeRequest(.vehiclesData) { (result: ResultEnum<TierData>) in
+            switch result {
+            case .success(let tierData):
+                let vehicles: [Vehicle] = tierData.data.compactMap{ Vehicle(tierDataElement: $0) }
+                completion(.success(value: vehicles))
+            case .error: completion(.error)
+            }
+        }
     }
     
     
