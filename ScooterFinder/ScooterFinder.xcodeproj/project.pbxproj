@@ -57,6 +57,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		942F74A42826721C007522EE /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				94C635B62824240400F6B50A /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		942F74A52826722D007522EE /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		942F74A628267237007522EE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		942F74A72826723C007522EE /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		94C635A62824240400F6B50A = {
 			isa = PBXGroup;
 			children = (
@@ -78,9 +107,12 @@
 		94C635B12824240400F6B50A /* ScooterFinder */ = {
 			isa = PBXGroup;
 			children = (
+				942F74A72826723C007522EE /* Utilities */,
+				942F74A628267237007522EE /* Model */,
+				942F74A52826722D007522EE /* View */,
+				942F74A42826721C007522EE /* Controller */,
 				94C635B22824240400F6B50A /* AppDelegate.swift */,
 				94C635B42824240400F6B50A /* SceneDelegate.swift */,
-				94C635B62824240400F6B50A /* ViewController.swift */,
 				94C635B82824240400F6B50A /* Main.storyboard */,
 				94C635BB2824240500F6B50A /* Assets.xcassets */,
 				94C635BD2824240500F6B50A /* LaunchScreen.storyboard */,
