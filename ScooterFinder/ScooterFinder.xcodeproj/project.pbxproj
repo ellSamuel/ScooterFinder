@@ -12,6 +12,7 @@
 		942F74AD2826B931007522EE /* Vehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942F74AC2826B931007522EE /* Vehicle.swift */; };
 		942F74AF2826C632007522EE /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942F74AE2826C632007522EE /* MapViewController.swift */; };
 		942F74B12827A5E3007522EE /* AnnotationViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942F74B02827A5E3007522EE /* AnnotationViews.swift */; };
+		942F74B32827C46D007522EE /* ClusterAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942F74B22827C46D007522EE /* ClusterAnnotationView.swift */; };
 		94C635B32824240400F6B50A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C635B22824240400F6B50A /* AppDelegate.swift */; };
 		94C635B52824240400F6B50A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C635B42824240400F6B50A /* SceneDelegate.swift */; };
 		94C635BA2824240400F6B50A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94C635B82824240400F6B50A /* Main.storyboard */; };
@@ -36,6 +37,7 @@
 		942F74AC2826B931007522EE /* Vehicle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vehicle.swift; sourceTree = "<group>"; };
 		942F74AE2826C632007522EE /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		942F74B02827A5E3007522EE /* AnnotationViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationViews.swift; sourceTree = "<group>"; };
+		942F74B22827C46D007522EE /* ClusterAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClusterAnnotationView.swift; sourceTree = "<group>"; };
 		94C635AF2824240400F6B50A /* ScooterFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScooterFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94C635B22824240400F6B50A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		94C635B42824240400F6B50A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				942F74B02827A5E3007522EE /* AnnotationViews.swift */,
+				942F74B22827C46D007522EE /* ClusterAnnotationView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -269,6 +272,7 @@
 				942F74B12827A5E3007522EE /* AnnotationViews.swift in Sources */,
 				942F74AB28268B96007522EE /* TierData.swift in Sources */,
 				942F74A9282673D0007522EE /* Rest.swift in Sources */,
+				942F74B32827C46D007522EE /* ClusterAnnotationView.swift in Sources */,
 				942F74AF2826C632007522EE /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -24,7 +24,8 @@ class BicycleAnnotationView: MKMarkerAnnotationView {
 
     override func prepareForDisplay() {
         super.prepareForDisplay()
-        markerTintColor = UIColor.orange
+        displayPriority = .required
+        markerTintColor = TierVehicleType.eBicycle.annotationColor
         glyphImage = UIImage(systemName: "bicycle")
     }
 }
@@ -45,7 +46,8 @@ class MopedAnnotationView: MKMarkerAnnotationView {
 
     override func prepareForDisplay() {
         super.prepareForDisplay()
-        markerTintColor = UIColor.purple
+        displayPriority = .required
+        markerTintColor = TierVehicleType.eMoped.annotationColor
         glyphImage = UIImage(named: "moped")
     }
 }
@@ -66,7 +68,8 @@ class ScooterAnnotationView: MKMarkerAnnotationView {
 
     override func prepareForDisplay() {
         super.prepareForDisplay()
-        markerTintColor = UIColor.blue
+        displayPriority = .required
+        markerTintColor = TierVehicleType.eScooter.annotationColor
         glyphImage = UIImage(systemName: "scooter")
     }
 }

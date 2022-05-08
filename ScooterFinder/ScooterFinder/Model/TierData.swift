@@ -5,7 +5,7 @@
 //  Created by Samuel Kebis on 07/05/2022.
 //
 
-import Foundation
+import UIKit
 
 struct TierData: Decodable {
     let data: [TierDataElement]
@@ -29,6 +29,14 @@ enum TierVehicleType: String, Decodable {
     case eBicycle = "ebicycle"
     case eMoped = "emoped"
     case eScooter = "escooter"
+    
+    var annotationColor: UIColor {
+        switch self {
+        case .eBicycle: return .orange
+        case .eMoped: return . purple
+        case .eScooter: return .blue
+        }
+    }
 }
 
 enum TierTypeEnum: String, Decodable {
