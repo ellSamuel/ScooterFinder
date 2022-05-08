@@ -8,7 +8,7 @@
 import UIKit
 import MapKit
 
-class MapViewController: UIViewController {
+class MapViewController: UIViewController, MKMapViewDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
     
@@ -21,6 +21,8 @@ class MapViewController: UIViewController {
         super.viewDidLoad()
         // Berlin region because it is a location of vehicles.
         mapView.setRegion(berlinRegion, animated: false)
+        mapView.delegate = self
+        registerAnnotationViewClasses()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -52,6 +54,22 @@ class MapViewController: UIViewController {
         DispatchQueue.main.async { [self] in
             mapView.removeAnnotations(mapView.annotations)
             mapView.addAnnotations(vehicles)
+        }
+    }
+    
+    func registerAnnotationViewClasses() {
+        mapView.register(BicycleAnnotationView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
+        mapView.register(ScooterAnnotationView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
+        mapView.register(MopedAnnotationView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
+    }
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        guard let annotation = annotation as? Vehicle else { return nil }
+        
+        switch annotation.type {
+        case .eBicycle: return BicycleAnnotationView(annotation: annotation, reuseIdentifier: BicycleAnnotationView.ReuseID)
+        case .eMoped: return MopedAnnotationView(annotation: annotation, reuseIdentifier: MopedAnnotationView.ReuseID)
+        case .eScooter: return ScooterAnnotationView(annotation: annotation, reuseIdentifier: ScooterAnnotationView.ReuseID)
         }
     }
 }
