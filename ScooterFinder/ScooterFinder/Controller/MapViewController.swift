@@ -150,6 +150,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         let vehicle = mapView.selectedAnnotations.first as? Vehicle
         hightlight(selectedVehicle: vehicle)
+        shouldHighlightNearest = false
     }
     
     func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
@@ -183,11 +184,14 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         print(error.localizedDescription)
     }
     
+    var shouldHighlightNearest = true
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.first else { return }
         
-        if mapView.selectedAnnotations.isEmpty, let nearestVehicle = Location.nearestVehicle(in: vehicles, to: location) {
+        if shouldHighlightNearest, mapView.selectedAnnotations.isEmpty, let nearestVehicle = Location.nearestVehicle(in: vehicles, to: location) {
             mapView.selectAnnotation(nearestVehicle, animated: false)
+            shouldHighlightNearest = false
         }
     }
 }
