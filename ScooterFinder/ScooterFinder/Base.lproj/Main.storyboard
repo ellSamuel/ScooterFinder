@@ -104,19 +104,92 @@
                         <outlet property="bottomViewOffset" destination="ZxY-gN-XrH" id="I1d-YX-hef"/>
                         <outlet property="helmetImageView" destination="PXQ-ac-V52" id="z2B-d1-hvA"/>
                         <outlet property="mapView" destination="rzB-68-gbC" id="jX5-Lz-Uct"/>
+                        <segue destination="iob-oN-hqn" kind="show" identifier="mapToVehicle" id="2lr-Kc-88d"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OOP-aQ-asb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1134.7826086956522" y="124.55357142857142"/>
         </scene>
+        <!--Vehicle View Controller-->
+        <scene sceneID="cUu-IR-6uP">
+            <objects>
+                <viewController id="iob-oN-hqn" customClass="VehicleViewController" customModule="ScooterFinder" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="m3P-ge-cch">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="scooter" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="RM3-XG-hP5">
+                                <rect key="frame" x="20" y="160.5" width="100" height="99"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="31m-ug-FwB"/>
+                                    <constraint firstAttribute="width" constant="100" id="PEn-be-l2l"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="AsS-iH-e0v">
+                                <rect key="frame" x="140" y="175.5" width="254" height="69.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Helmet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ac-q5-K3U">
+                                        <rect key="frame" x="0.0" y="0.0" width="254" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Battery" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zj7-5c-O9y">
+                                        <rect key="frame" x="0.0" y="24.5" width="254" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Max speed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CPk-dr-BkR">
+                                        <rect key="frame" x="0.0" y="49" width="254" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="helmet" translatesAutoresizingMaskIntoConstraints="NO" id="DKM-uN-k8w">
+                                <rect key="frame" x="95" y="150" width="35" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="35" id="klN-IL-LoS"/>
+                                    <constraint firstAttribute="height" constant="35" id="xUL-RN-0Ma"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="zLU-Yw-QlB"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="AsS-iH-e0v" firstAttribute="centerY" secondItem="RM3-XG-hP5" secondAttribute="centerY" id="1VK-1F-gpQ"/>
+                            <constraint firstItem="RM3-XG-hP5" firstAttribute="top" secondItem="zLU-Yw-QlB" secondAttribute="top" constant="20" id="SPq-B4-LSx"/>
+                            <constraint firstItem="AsS-iH-e0v" firstAttribute="leading" secondItem="DKM-uN-k8w" secondAttribute="trailing" constant="10" id="WZ1-CD-4OG"/>
+                            <constraint firstItem="RM3-XG-hP5" firstAttribute="leading" secondItem="zLU-Yw-QlB" secondAttribute="leading" constant="20" id="YBT-cS-1Uk"/>
+                            <constraint firstItem="zLU-Yw-QlB" firstAttribute="trailing" secondItem="AsS-iH-e0v" secondAttribute="trailing" constant="20" id="g1T-HI-Vzp"/>
+                            <constraint firstItem="DKM-uN-k8w" firstAttribute="top" secondItem="RM3-XG-hP5" secondAttribute="top" constant="-10" id="kTK-4g-DN6"/>
+                            <constraint firstItem="DKM-uN-k8w" firstAttribute="trailing" secondItem="RM3-XG-hP5" secondAttribute="trailing" constant="10" id="qPF-ZS-QjZ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Dus-ng-NmI"/>
+                    <connections>
+                        <outlet property="batteryLabel" destination="Zj7-5c-O9y" id="iXy-F2-UOE"/>
+                        <outlet property="helmetImageView" destination="DKM-uN-k8w" id="GjQ-0A-rqW"/>
+                        <outlet property="helmetLabel" destination="5ac-q5-K3U" id="gA8-VS-8sH"/>
+                        <outlet property="speedLabel" destination="CPk-dr-BkR" id="7BM-4A-Rmq"/>
+                        <outlet property="vehicleImageView" destination="RM3-XG-hP5" id="Uzy-Io-PlH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Agk-CG-HkB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1995.6521739130437" y="124.55357142857142"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="dwi-w8-d0L">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="duj-vq-0gY" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="86R-yN-nsj">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="86R-yN-nsj">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -132,6 +205,7 @@
     <resources>
         <image name="helmet" width="33" height="33"/>
         <image name="moped" width="40" height="40"/>
+        <image name="scooter" catalog="system" width="128" height="95"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

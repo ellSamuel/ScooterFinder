@@ -31,19 +31,21 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         mapView.delegate = self
         registerAnnotationViewClasses()
         hightlight(selectedVehicle: nil, animated: false)
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
         loadData()
     }
     
-         
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "mapToVehicle", let vc = segue.destination as? VehicleViewController, let vehicle = sender as? Vehicle {
+            vc.vehicle = vehicle
+        }
+    }
+    
+    
     // MARK: - Action
     
     @IBAction func bottomButtonClick(_ sender: UIButton) {
         if let vehicle = mapView.selectedAnnotations.first as? Vehicle {
-            print("Go to \(vehicle.type.rawValue) \(vehicle.id)")
+            performSegue(withIdentifier: "mapToVehicle", sender: vehicle)
         }
     }
     
