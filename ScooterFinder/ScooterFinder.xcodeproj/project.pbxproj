@@ -16,12 +16,13 @@
 		942F74B528290098007522EE /* VehicleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942F74B428290098007522EE /* VehicleViewController.swift */; };
 		942F74B72829099E007522EE /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942F74B62829099E007522EE /* Storage.swift */; };
 		942F74B928290BD1007522EE /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942F74B828290BD1007522EE /* Extensions.swift */; };
+		942F74BB2829200F007522EE /* IntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942F74BA2829200F007522EE /* IntegrationTests.swift */; };
+		942F74BD282920AD007522EE /* exampleResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 942F74BC282920AD007522EE /* exampleResponse.json */; };
 		94C635B32824240400F6B50A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C635B22824240400F6B50A /* AppDelegate.swift */; };
 		94C635B52824240400F6B50A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C635B42824240400F6B50A /* SceneDelegate.swift */; };
 		94C635BA2824240400F6B50A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94C635B82824240400F6B50A /* Main.storyboard */; };
 		94C635BC2824240500F6B50A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94C635BB2824240500F6B50A /* Assets.xcassets */; };
 		94C635BF2824240500F6B50A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94C635BD2824240500F6B50A /* LaunchScreen.storyboard */; };
-		94C635CA2824240500F6B50A /* ScooterFinderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C635C92824240500F6B50A /* ScooterFinderTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,8 @@
 		942F74B428290098007522EE /* VehicleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleViewController.swift; sourceTree = "<group>"; };
 		942F74B62829099E007522EE /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		942F74B828290BD1007522EE /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		942F74BA2829200F007522EE /* IntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntegrationTests.swift; sourceTree = "<group>"; };
+		942F74BC282920AD007522EE /* exampleResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = exampleResponse.json; sourceTree = "<group>"; };
 		94C635AF2824240400F6B50A /* ScooterFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScooterFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94C635B22824240400F6B50A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		94C635B42824240400F6B50A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -52,7 +55,6 @@
 		94C635BE2824240500F6B50A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		94C635C02824240500F6B50A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		94C635C52824240500F6B50A /* ScooterFinderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScooterFinderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		94C635C92824240500F6B50A /* ScooterFinderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScooterFinderTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,7 +150,8 @@
 		94C635C82824240500F6B50A /* ScooterFinderTests */ = {
 			isa = PBXGroup;
 			children = (
-				94C635C92824240500F6B50A /* ScooterFinderTests.swift */,
+				942F74BA2829200F007522EE /* IntegrationTests.swift */,
+				942F74BC282920AD007522EE /* exampleResponse.json */,
 			);
 			path = ScooterFinderTests;
 			sourceTree = "<group>";
@@ -245,6 +248,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				942F74BD282920AD007522EE /* exampleResponse.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,7 +297,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				94C635CA2824240500F6B50A /* ScooterFinderTests.swift in Sources */,
+				942F74BB2829200F007522EE /* IntegrationTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
