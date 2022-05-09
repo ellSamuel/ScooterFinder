@@ -12,6 +12,13 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
     
+    @IBOutlet weak var helmetImageView: UIImageView!
+    @IBOutlet weak var bottomImageView: UIImageView!
+    @IBOutlet weak var bottomTitle: UILabel!
+    @IBOutlet weak var bottomDescription: UILabel!
+    @IBOutlet weak var bottomButton: UIButton!
+    @IBOutlet weak var bottomViewOffset: NSLayoutConstraint!
+    
     var vehicles: [Vehicle] = []
     
     
@@ -23,11 +30,50 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         mapView.setRegion(berlinRegion, animated: false)
         mapView.delegate = self
         registerAnnotationViewClasses()
+        hightlight(selectedVehicle: nil, animated: false)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         loadData()
+    }
+    
+         
+    // MARK: - Action
+    
+    @IBAction func bottomButtonClick(_ sender: UIButton) {
+        if let vehicle = mapView.selectedAnnotations.first as? Vehicle {
+            print("Go to \(vehicle.type.rawValue) \(vehicle.id)")
+        }
+    }
+    
+    
+    // MARK: - UI
+    
+    /// Shows the bottom banner with information about vehicle.
+    /// Use nil to hide the banner.
+    func hightlight(selectedVehicle vehicle: Vehicle?, animated: Bool = true) {
+        if let vehicle = vehicle {
+            helmetImageView.isHidden = !vehicle.hasHelmetBox
+            bottomImageView.image = vehicle.type.icon
+            bottomTitle.text = vehicle.name
+            bottomDescription.text = "Battery \(vehicle.batteryLevel)%, Max speed \(vehicle.maxSpeed)km/h"
+            bottomButton.isHidden = false
+            let bottomViewHeight = 66.0
+            let homeIndicatorHeight = UIApplication.shared.windows.first?.safeAreaInsets.bottom ?? 0
+            bottomViewOffset.constant = bottomViewHeight + homeIndicatorHeight
+        } else {
+            helmetImageView.isHidden = true
+            bottomImageView.image = nil
+            bottomTitle.text = ""
+            bottomDescription.text = ""
+            bottomButton.isHidden = true
+            bottomViewOffset.constant = 0
+        }
+        let duration = animated ? 0.2 : 0
+        UIView.animate(withDuration: duration) {
+            self.view.layoutIfNeeded()
+        }
     }
     
     
@@ -72,5 +118,14 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         case .eMoped: return MopedAnnotationView(annotation: annotation, reuseIdentifier: MopedAnnotationView.ReuseID)
         case .eScooter: return ScooterAnnotationView(annotation: annotation, reuseIdentifier: ScooterAnnotationView.ReuseID)
         }
+    }
+    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        let vehicle = mapView.selectedAnnotations.first as? Vehicle
+        hightlight(selectedVehicle: vehicle)
+    }
+    
+    func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
+        hightlight(selectedVehicle: nil)
     }
 }

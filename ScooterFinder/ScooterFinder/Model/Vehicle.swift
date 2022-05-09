@@ -31,4 +31,6 @@ class Vehicle: NSObject, MKAnnotation {
     var coordinate: CLLocationCoordinate2D {
         CLLocationCoordinate2D(latitude: lat, longitude: lng)
     }
+    
+    var name: String { type.name + " " + id }
 }

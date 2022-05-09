@@ -26,7 +26,7 @@ class BicycleAnnotationView: MKMarkerAnnotationView {
         super.prepareForDisplay()
         displayPriority = .required
         markerTintColor = TierVehicleType.eBicycle.annotationColor
-        glyphImage = UIImage(systemName: "bicycle")
+        glyphImage = TierVehicleType.eBicycle.icon
     }
 }
 
@@ -48,7 +48,7 @@ class MopedAnnotationView: MKMarkerAnnotationView {
         super.prepareForDisplay()
         displayPriority = .required
         markerTintColor = TierVehicleType.eMoped.annotationColor
-        glyphImage = UIImage(named: "moped")
+        glyphImage = TierVehicleType.eMoped.icon
     }
 }
 
@@ -70,6 +70,6 @@ class ScooterAnnotationView: MKMarkerAnnotationView {
         super.prepareForDisplay()
         displayPriority = .required
         markerTintColor = TierVehicleType.eScooter.annotationColor
-        glyphImage = UIImage(systemName: "scooter")
+        glyphImage = TierVehicleType.eScooter.icon
     }
 }
