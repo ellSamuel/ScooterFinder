@@ -8,7 +8,7 @@
 import Foundation
 import MapKit
 
-class Vehicle: NSObject, MKAnnotation {
+class Vehicle: NSObject, Codable, MKAnnotation {
     let id: String
     let type: TierVehicleType
     let lat, lng: Double

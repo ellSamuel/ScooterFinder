@@ -25,7 +25,7 @@ struct TierAttributes: Decodable {
     let hasHelmetBox: Bool
 }
 
-enum TierVehicleType: String, Decodable {
+enum TierVehicleType: String, Codable {
     case eBicycle = "ebicycle"
     case eMoped = "emoped"
     case eScooter = "escooter"

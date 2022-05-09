@@ -31,7 +31,9 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         mapView.delegate = self
         registerAnnotationViewClasses()
         hightlight(selectedVehicle: nil, animated: false)
-        loadData()
+        vehicles = Storage.vehicles() ?? []
+        reloadAnnotations()
+        fetchAndDisplayData()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -81,11 +83,12 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     // MARK: - Data
     
-    func loadData() {
+    func fetchAndDisplayData() {
         Rest.vehiclesData {
             switch $0 {
             case .success(let vehicles):
                 self.vehicles = vehicles
+                Storage.save(vehicles: vehicles)
                 self.reloadAnnotations()
                 print("Vehicle data loaded. \(vehicles.count) vehicles initialised.")
             case .error: print("Error loading vehicle data.")
