@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import os.log
 
 class Rest {
     
@@ -23,7 +24,7 @@ class Rest {
     
     // MARK: - Private
     
-    private enum Endpoint {
+    private enum Endpoint: String {
         case vehiclesData
         
         var url: URL { URL(string: baseUrl + path)! }
@@ -65,28 +66,46 @@ class Rest {
         
         let task = session.dataTask(with: request) { data, response, error in
             if let error = error {
-                print(error.localizedDescription)
+                log(error.localizedDescription, type: .error)
                 completion(.error)
                 return
             }
             
             guard let data = data else {
-                print("Data nil while decoding response")
+                log("Data nil while decoding response", type: .error)
                 completion(.error)
                 return
             }
             
             do {
                 let value = try JSONDecoder().decode(T.self, from: data)
-                print("Successfully decode")
+                log("Data successfully decoded")
                 completion(.success(value: value))
             } catch let error {
-                print(error.localizedDescription)
+                log(error.localizedDescription, type: .error)
                 completion(.error)
             }
         }
         
-        print("Make request")
+        log("request - " + requestEnum.rawValue)
         task.resume()
     }
+    
+    
+    // MARK: - Debug
+    
+    // Use the Console mac app for better filtering or inspecting logs
+    
+    @available(iOS 14.0, *)
+    private static let logger = Logger(oldOSLog)
+    private static let oldOSLog = OSLog(subsystem: "com.SamuelKebis.ScooterFinder", category: "network")
+    
+    private static func log(_ message: String, type: OSLogType = .default) {
+        if #available(iOS 14.0, *) {
+            logger.log(level: type, "\(message, privacy: .public)")
+        } else {
+            os_log("%{public}@", log: oldOSLog, type: type, message)
+        }
+    }
+
 }

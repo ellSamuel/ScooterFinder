@@ -142,8 +142,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                 self.vehicles = vehicles
                 Storage.save(vehicles: vehicles)
                 self.reloadAnnotations()
-                print("Vehicle data loaded. \(vehicles.count) vehicles initialised.")
-            case .error: print("Error loading vehicle data.")
+            case .error: break
             }
         }
     }
@@ -210,10 +209,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         case .restricted, .denied: break
         @unknown default: break
         }
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print(error.localizedDescription)
     }
     
     var shouldHighlightNearestVehicle = false
