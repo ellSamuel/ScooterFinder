@@ -32,5 +32,9 @@ class Vehicle: NSObject, Codable, MKAnnotation {
         CLLocationCoordinate2D(latitude: lat, longitude: lng)
     }
     
+    var location: CLLocation {
+        CLLocation(latitude: lat, longitude: lng)
+    }
+    
     var name: String { type.name + " " + id }
 }

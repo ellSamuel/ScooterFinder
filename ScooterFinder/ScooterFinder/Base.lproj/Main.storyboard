@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="rzB-68-gbC">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" pitchEnabled="NO" showsUserLocation="YES" showsScale="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rzB-68-gbC">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </mapView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lca-GW-EGu">
@@ -82,6 +82,19 @@
                                     <constraint firstItem="zUb-ox-iFo" firstAttribute="bottom" secondItem="rdN-zC-5z8" secondAttribute="bottom" id="zzQ-vG-Jxu"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zAR-4H-RdB">
+                                <rect key="frame" x="344" y="726" width="50" height="50"/>
+                                <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="EKM-Ab-Y30"/>
+                                    <constraint firstAttribute="width" constant="50" id="VRb-Go-TaC"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="location" catalog="system"/>
+                                <connections>
+                                    <action selector="locationClick:" destination="COg-w5-7XD" eventType="touchUpInside" id="Weo-a9-8Aa"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="KSB-vz-Fqy"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -93,6 +106,8 @@
                             <constraint firstAttribute="bottom" secondItem="lca-GW-EGu" secondAttribute="top" constant="100" id="ZxY-gN-XrH"/>
                             <constraint firstItem="rzB-68-gbC" firstAttribute="leading" secondItem="KSB-vz-Fqy" secondAttribute="leading" id="e2Z-8h-tWX"/>
                             <constraint firstAttribute="bottom" secondItem="rzB-68-gbC" secondAttribute="bottom" id="hx7-5A-zsr"/>
+                            <constraint firstItem="KSB-vz-Fqy" firstAttribute="trailing" secondItem="zAR-4H-RdB" secondAttribute="trailing" constant="20" id="jNj-37-lN9"/>
+                            <constraint firstItem="lca-GW-EGu" firstAttribute="top" secondItem="zAR-4H-RdB" secondAttribute="bottom" constant="20" id="o0k-9o-Fsv"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="CzT-iP-qub"/>
@@ -204,6 +219,7 @@
     </scenes>
     <resources>
         <image name="helmet" width="33" height="33"/>
+        <image name="location" catalog="system" width="128" height="118"/>
         <image name="moped" width="40" height="40"/>
         <image name="scooter" catalog="system" width="128" height="95"/>
         <systemColor name="systemBackgroundColor">

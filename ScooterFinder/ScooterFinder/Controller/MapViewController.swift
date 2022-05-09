@@ -7,8 +7,9 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
-class MapViewController: UIViewController, MKMapViewDelegate {
+class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
     
@@ -20,6 +21,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     @IBOutlet weak var bottomViewOffset: NSLayoutConstraint!
     
     var vehicles: [Vehicle] = []
+    var locationManager = CLLocationManager()
     
     
     // MARK: - Lifecycle
@@ -34,6 +36,13 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         vehicles = Storage.vehicles() ?? []
         reloadAnnotations()
         fetchAndDisplayData()
+        
+        locationManager.delegate = self
+        if #available(iOS 14.0, *) {
+            locationAuthorizationChanged(status: locationManager.authorizationStatus)
+        } else {
+            locationAuthorizationChanged(status: CLLocationManager.authorizationStatus())
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -44,6 +53,19 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     
     // MARK: - Action
+    
+    @IBAction func locationClick(_ sender: UIButton) {
+        switch CLLocationManager.authorizationStatus() {
+        case .authorizedAlways, .authorizedWhenInUse:
+            if let locationCoordinates = locationManager.location?.coordinate {
+                mapView.setCenter(locationCoordinates, animated: true)
+            }
+        case .denied: Location.openLocationSettings()
+        case .notDetermined: locationManager.requestWhenInUseAuthorization()
+        case .restricted: Location.showLocationRestrictionAlert(in: self)
+        @unknown default: break
+        }
+    }
     
     @IBAction func bottomButtonClick(_ sender: UIButton) {
         if let vehicle = mapView.selectedAnnotations.first as? Vehicle {
@@ -132,5 +154,40 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
         hightlight(selectedVehicle: nil)
+    }
+    
+    
+    // MARK: - Location
+    
+    // iOS 14
+    @available(iOS 14.0, *)
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        locationAuthorizationChanged(status: manager.authorizationStatus)
+    }
+    
+    // iOS 13.* and below
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        locationAuthorizationChanged(status: status)
+    }
+    
+    func locationAuthorizationChanged(status: CLAuthorizationStatus) {
+        switch status {
+        case .notDetermined: locationManager.requestWhenInUseAuthorization()
+        case .authorizedAlways, .authorizedWhenInUse: locationManager.startUpdatingLocation()
+        case .restricted, .denied: break
+        @unknown default: break
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error.localizedDescription)
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let location = locations.first else { return }
+        
+        if mapView.selectedAnnotations.isEmpty, let nearestVehicle = Location.nearestVehicle(in: vehicles, to: location) {
+            mapView.selectAnnotation(nearestVehicle, animated: false)
+        }
     }
 }
