@@ -19,6 +19,7 @@
 		942F74BB2829200F007522EE /* IntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942F74BA2829200F007522EE /* IntegrationTests.swift */; };
 		942F74BD282920AD007522EE /* exampleResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 942F74BC282920AD007522EE /* exampleResponse.json */; };
 		942F74C02829685A007522EE /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942F74BF2829685A007522EE /* Location.swift */; };
+		942F74C428299E16007522EE /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942F74C328299E16007522EE /* Network.swift */; };
 		94C635B32824240400F6B50A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C635B22824240400F6B50A /* AppDelegate.swift */; };
 		94C635B52824240400F6B50A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C635B42824240400F6B50A /* SceneDelegate.swift */; };
 		94C635BA2824240400F6B50A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94C635B82824240400F6B50A /* Main.storyboard */; };
@@ -49,6 +50,7 @@
 		942F74BA2829200F007522EE /* IntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntegrationTests.swift; sourceTree = "<group>"; };
 		942F74BC282920AD007522EE /* exampleResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = exampleResponse.json; sourceTree = "<group>"; };
 		942F74BF2829685A007522EE /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		942F74C328299E16007522EE /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		94C635AF2824240400F6B50A /* ScooterFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScooterFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94C635B22824240400F6B50A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		94C635B42824240400F6B50A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 				942F74B62829099E007522EE /* Storage.swift */,
 				942F74B828290BD1007522EE /* Extensions.swift */,
 				942F74BF2829685A007522EE /* Location.swift */,
+				942F74C328299E16007522EE /* Network.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				942F74C428299E16007522EE /* Network.swift in Sources */,
 				942F74AD2826B931007522EE /* Vehicle.swift in Sources */,
 				942F74B528290098007522EE /* VehicleViewController.swift in Sources */,
 				94C635B32824240400F6B50A /* AppDelegate.swift in Sources */,

@@ -9,11 +9,13 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
+class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, CanDetectNetworkChanges {
     
     @IBOutlet weak var mapView: MKMapView!
     
     @IBOutlet weak var locationButton: UIButton!
+    
+    @IBOutlet weak var topViewOffset: NSLayoutConstraint!
     
     @IBOutlet weak var helmetImageView: UIImageView!
     @IBOutlet weak var bottomImageView: UIImageView!
@@ -39,6 +41,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         vehicles = Storage.vehicles() ?? []
         reloadAnnotations()
         fetchAndDisplayData()
+        Network.mapDelegate = self
         
         locationManager.delegate = self
         if #available(iOS 14.0, *) {
@@ -219,6 +222,15 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         if shouldHighlightNearestVehicle, mapView.selectedAnnotations.isEmpty, let nearestVehicle = Location.nearestVehicle(in: vehicles, to: location) {
             mapView.selectAnnotation(nearestVehicle, animated: false)
             shouldHighlightNearestVehicle = false
+        }
+    }
+    
+    func didChanged(networkStatus online: Bool) {
+        let topViewHeight = 33.0
+        let topSafeAreaHeight = UIApplication.shared.windows.first?.safeAreaInsets.top ?? 0
+        topViewOffset.constant = online ? 0 : topViewHeight + topSafeAreaHeight
+        UIView.animate(withDuration: 0.2) {
+            self.view.layoutIfNeeded()
         }
     }
 }
