@@ -17,6 +17,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     @IBOutlet weak var bottomImageView: UIImageView!
     @IBOutlet weak var bottomTitle: UILabel!
     @IBOutlet weak var bottomDescription: UILabel!
+    @IBOutlet weak var bottomDistanceLabel: UILabel!
     @IBOutlet weak var bottomButton: UIButton!
     @IBOutlet weak var bottomViewOffset: NSLayoutConstraint!
     
@@ -43,6 +44,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         } else {
             locationAuthorizationChanged(status: CLLocationManager.authorizationStatus())
         }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        shouldHighlightNearestVehicle = true
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -96,9 +102,19 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             bottomButton.isHidden = true
             bottomViewOffset.constant = 0
         }
+        updateDistanceTo(selected: vehicle)
         let duration = animated ? 0.2 : 0
         UIView.animate(withDuration: duration) {
             self.view.layoutIfNeeded()
+        }
+    }
+    
+    func updateDistanceTo(selected vehicle: Vehicle?) {
+        if let location = locationManager.location, let vehicle = vehicle {
+            let distanceInMeters = Int(location.distance(from: vehicle.location))
+            bottomDistanceLabel.text = "\(distanceInMeters)m"
+        } else {
+            bottomDistanceLabel.text = ""
         }
     }
     
@@ -125,8 +141,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     func reloadAnnotations() {
         DispatchQueue.main.async { [self] in
+            let selected = mapView.selectedAnnotations
             mapView.removeAnnotations(mapView.annotations)
             mapView.addAnnotations(vehicles)
+            mapView.selectedAnnotations = selected
         }
     }
     
@@ -150,7 +168,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         let vehicle = mapView.selectedAnnotations.first as? Vehicle
         hightlight(selectedVehicle: vehicle)
-        shouldHighlightNearest = false
+        shouldHighlightNearestVehicle = false
     }
     
     func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
@@ -184,14 +202,14 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         print(error.localizedDescription)
     }
     
-    var shouldHighlightNearest = true
+    var shouldHighlightNearestVehicle = false
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.first else { return }
         
-        if shouldHighlightNearest, mapView.selectedAnnotations.isEmpty, let nearestVehicle = Location.nearestVehicle(in: vehicles, to: location) {
+        if shouldHighlightNearestVehicle, mapView.selectedAnnotations.isEmpty, let nearestVehicle = Location.nearestVehicle(in: vehicles, to: location) {
             mapView.selectAnnotation(nearestVehicle, animated: false)
-            shouldHighlightNearest = false
+            shouldHighlightNearestVehicle = false
         }
     }
 }
