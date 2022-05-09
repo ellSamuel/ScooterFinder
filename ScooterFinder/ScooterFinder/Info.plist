@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleVersion</key>
-	<string>18</string>
+	<string>19</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Share your location in order to find nearby vehicle.</string>
 	<key>UIApplicationSceneManifest</key>

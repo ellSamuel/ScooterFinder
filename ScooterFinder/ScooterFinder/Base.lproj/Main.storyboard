@@ -24,8 +24,8 @@
                                 <rect key="frame" x="0.0" y="796" width="414" height="100"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rdN-zC-5z8">
-                                        <rect key="frame" x="356" y="8" width="50" height="50"/>
-                                        <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                        <rect key="frame" x="352" y="8" width="50" height="50"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="rdN-zC-5z8" secondAttribute="height" multiplier="1:1" id="VpM-qP-cPs"/>
                                             <constraint firstAttribute="height" constant="50" id="mMJ-6O-vdq"/>
@@ -44,13 +44,13 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zUb-ox-iFo">
-                                        <rect key="frame" x="66" y="43.5" width="282" height="14.5"/>
+                                        <rect key="frame" x="66" y="43.5" width="278" height="14.5"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZfI-8q-IeJ">
-                                        <rect key="frame" x="66" y="13.5" width="215" height="30"/>
+                                        <rect key="frame" x="66" y="13.5" width="228.5" height="30"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -63,13 +63,13 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BOf-ah-sCm">
-                                        <rect key="frame" x="289" y="13.5" width="59" height="30"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                        <rect key="frame" x="302.5" y="23" width="41.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="ZfI-8q-IeJ" firstAttribute="leading" secondItem="eqn-sD-KGi" secondAttribute="trailing" constant="8" id="0fZ-Ew-Dcj"/>
                                     <constraint firstItem="BOf-ah-sCm" firstAttribute="leading" secondItem="ZfI-8q-IeJ" secondAttribute="trailing" constant="8" id="FFe-0I-XQg"/>
@@ -86,14 +86,14 @@
                                     <constraint firstItem="PXQ-ac-V52" firstAttribute="top" secondItem="eqn-sD-KGi" secondAttribute="top" constant="-4" id="e9R-Vo-Txq"/>
                                     <constraint firstItem="zUb-ox-iFo" firstAttribute="top" secondItem="ZfI-8q-IeJ" secondAttribute="bottom" id="eB5-dX-9if"/>
                                     <constraint firstItem="rdN-zC-5z8" firstAttribute="leading" secondItem="BOf-ah-sCm" secondAttribute="trailing" constant="8" symbolic="YES" id="gd8-ag-2hL"/>
-                                    <constraint firstAttribute="trailing" secondItem="rdN-zC-5z8" secondAttribute="trailing" constant="8" id="hoc-Ox-BO1"/>
+                                    <constraint firstAttribute="trailing" secondItem="rdN-zC-5z8" secondAttribute="trailing" constant="12" id="hoc-Ox-BO1"/>
                                     <constraint firstItem="eqn-sD-KGi" firstAttribute="bottom" secondItem="rdN-zC-5z8" secondAttribute="bottom" id="pB1-uJ-mAT"/>
                                     <constraint firstItem="zUb-ox-iFo" firstAttribute="bottom" secondItem="rdN-zC-5z8" secondAttribute="bottom" id="zzQ-vG-Jxu"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zAR-4H-RdB">
-                                <rect key="frame" x="344" y="726" width="50" height="50"/>
-                                <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                <rect key="frame" x="352" y="738" width="50" height="50"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="EKM-Ab-Y30"/>
                                     <constraint firstAttribute="width" constant="50" id="VRb-Go-TaC"/>
@@ -112,11 +112,12 @@
                             <constraint firstItem="rzB-68-gbC" firstAttribute="top" secondItem="53O-q2-zgU" secondAttribute="top" id="5c8-X8-0U0"/>
                             <constraint firstItem="rzB-68-gbC" firstAttribute="trailing" secondItem="KSB-vz-Fqy" secondAttribute="trailing" id="G8S-98-CAX"/>
                             <constraint firstItem="lca-GW-EGu" firstAttribute="leading" secondItem="KSB-vz-Fqy" secondAttribute="leading" id="RFY-aM-NGS"/>
+                            <constraint firstItem="KSB-vz-Fqy" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="zAR-4H-RdB" secondAttribute="bottom" id="Tpw-Ft-Y0z"/>
                             <constraint firstAttribute="bottom" secondItem="lca-GW-EGu" secondAttribute="top" constant="100" id="ZxY-gN-XrH"/>
                             <constraint firstItem="rzB-68-gbC" firstAttribute="leading" secondItem="KSB-vz-Fqy" secondAttribute="leading" id="e2Z-8h-tWX"/>
                             <constraint firstAttribute="bottom" secondItem="rzB-68-gbC" secondAttribute="bottom" id="hx7-5A-zsr"/>
-                            <constraint firstItem="KSB-vz-Fqy" firstAttribute="trailing" secondItem="zAR-4H-RdB" secondAttribute="trailing" constant="20" id="jNj-37-lN9"/>
-                            <constraint firstItem="lca-GW-EGu" firstAttribute="top" secondItem="zAR-4H-RdB" secondAttribute="bottom" constant="20" id="o0k-9o-Fsv"/>
+                            <constraint firstItem="KSB-vz-Fqy" firstAttribute="trailing" secondItem="zAR-4H-RdB" secondAttribute="trailing" constant="12" id="jNj-37-lN9"/>
+                            <constraint firstItem="lca-GW-EGu" firstAttribute="top" secondItem="zAR-4H-RdB" secondAttribute="bottom" constant="8" id="o0k-9o-Fsv"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="CzT-iP-qub"/>
@@ -128,6 +129,7 @@
                         <outlet property="bottomTitle" destination="ZfI-8q-IeJ" id="nIE-cU-gx3"/>
                         <outlet property="bottomViewOffset" destination="ZxY-gN-XrH" id="I1d-YX-hef"/>
                         <outlet property="helmetImageView" destination="PXQ-ac-V52" id="z2B-d1-hvA"/>
+                        <outlet property="locationButton" destination="zAR-4H-RdB" id="CXU-hc-zsd"/>
                         <outlet property="mapView" destination="rzB-68-gbC" id="jX5-Lz-Uct"/>
                         <segue destination="iob-oN-hqn" kind="show" identifier="mapToVehicle" id="2lr-Kc-88d"/>
                     </connections>
@@ -234,12 +236,6 @@
         <image name="scooter" catalog="system" width="128" height="95"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemYellowColor">
-            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

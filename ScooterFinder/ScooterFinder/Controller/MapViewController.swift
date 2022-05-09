@@ -13,6 +13,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     @IBOutlet weak var mapView: MKMapView!
     
+    @IBOutlet weak var locationButton: UIButton!
+    
     @IBOutlet weak var helmetImageView: UIImageView!
     @IBOutlet weak var bottomImageView: UIImageView!
     @IBOutlet weak var bottomTitle: UILabel!
@@ -44,6 +46,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         } else {
             locationAuthorizationChanged(status: CLLocationManager.authorizationStatus())
         }
+        
+        styleButtonsUI()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -88,7 +92,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         if let vehicle = vehicle {
             helmetImageView.isHidden = !vehicle.hasHelmetBox
             bottomImageView.image = vehicle.type.icon
-            bottomTitle.text = vehicle.name
+            bottomTitle.text = vehicle.type.name
             bottomDescription.text = "Battery \(vehicle.batteryLevel)%, Max speed \(vehicle.maxSpeed)km/h"
             bottomButton.isHidden = false
             let bottomViewHeight = 66.0
@@ -115,6 +119,16 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             bottomDistanceLabel.text = "\(distanceInMeters)m"
         } else {
             bottomDistanceLabel.text = ""
+        }
+    }
+    
+    func styleButtonsUI() {
+        [locationButton.layer, bottomButton.layer].forEach {
+            $0.cornerRadius = 10
+            $0.shadowColor = UIColor.black.cgColor
+            $0.shadowOpacity = 0.2
+            $0.shadowOffset = .zero
+            $0.shadowRadius = 6
         }
     }
     
